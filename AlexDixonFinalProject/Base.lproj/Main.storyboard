@@ -172,6 +172,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="UkY-4E-j6q"/>
                     <connections>
+                        <outlet property="upcomingTableview" destination="Vt7-GM-gvL" id="bLD-tO-ToH"/>
                         <segue destination="tzg-iD-kMW" kind="presentation" identifier="upcomingToDetails" id="bfQ-JA-u9K"/>
                     </connections>
                 </viewController>

@@ -14,11 +14,11 @@
 		EDA60FB6227006CB00F9046F /* RegisteredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA60FB5227006CB00F9046F /* RegisteredViewController.swift */; };
 		EDA60FB92270084700F9046F /* AlexDixonFinalProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDA60FB72270084700F9046F /* AlexDixonFinalProject.xcdatamodeld */; };
 		EDA60FBB227010A800F9046F /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA60FBA227010A800F9046F /* EventDetailsViewController.swift */; };
+		EDB90C4F227202F3004EFDA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDB90C4E227202F1004EFDA6 /* GoogleService-Info.plist */; };
 		EDE951F422661C930000F8B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE951F322661C930000F8B9 /* AppDelegate.swift */; };
 		EDE951F622661C930000F8B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE951F522661C930000F8B9 /* ViewController.swift */; };
 		EDE951F922661C930000F8B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE951F722661C930000F8B9 /* Main.storyboard */; };
 		EDE951FB22661C960000F8B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE951FA22661C960000F8B9 /* Assets.xcassets */; };
-		EDE95206226620DB0000F8B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDE95205226620DB0000F8B9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +31,13 @@
 		EDA60FB5227006CB00F9046F /* RegisteredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredViewController.swift; sourceTree = "<group>"; };
 		EDA60FB82270084700F9046F /* AlexDixonFinalProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlexDixonFinalProject.xcdatamodel; sourceTree = "<group>"; };
 		EDA60FBA227010A800F9046F /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		EDB90C4E227202F1004EFDA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EDE951F022661C930000F8B9 /* AlexDixonFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlexDixonFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE951F322661C930000F8B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDE951F522661C930000F8B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EDE951F822661C930000F8B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDE951FA22661C960000F8B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDE951FF22661C960000F8B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDE95205226620DB0000F8B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,6 @@
 		EDE951E722661C930000F8B9 = {
 			isa = PBXGroup;
 			children = (
-				EDE95205226620DB0000F8B9 /* GoogleService-Info.plist */,
 				EDE951F222661C930000F8B9 /* AlexDixonFinalProject */,
 				EDE951F122661C930000F8B9 /* Products */,
 				30EF77A7E1C37FF8F98AAD5C /* Pods */,
@@ -91,6 +90,7 @@
 		EDE951F222661C930000F8B9 /* AlexDixonFinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				EDB90C4E227202F1004EFDA6 /* GoogleService-Info.plist */,
 				EDE951F322661C930000F8B9 /* AppDelegate.swift */,
 				EDE951F522661C930000F8B9 /* ViewController.swift */,
 				EDE951F722661C930000F8B9 /* Main.storyboard */,
@@ -167,8 +167,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDE95206226620DB0000F8B9 /* GoogleService-Info.plist in Resources */,
 				EDE951FB22661C960000F8B9 /* Assets.xcassets in Resources */,
+				EDB90C4F227202F3004EFDA6 /* GoogleService-Info.plist in Resources */,
 				ED5D8F1C2268D3AC003F7CB8 /* Launch Screen.storyboard in Resources */,
 				EDE951F922661C930000F8B9 /* Main.storyboard in Resources */,
 			);

@@ -15,25 +15,30 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var events: NSDictionary = [:]
     var days: NSDictionary = [:]
     
-    let exampleDays = ["April 23, 2019", "April 24, 2019", "April 30, 2019"]
-    let exampleNames = ["Donut Burn Out", "Preparing for Finals"]
+    let dateIndex = 0           // date Strings are stored in first column of dates
+    let eventIndex  = 1         // event IDs are stored in second column of dates
+    var dates: [[[String]]] = [
+        [
+            [""], [""]]]            // initialize shape of dates array for table view initialization
+    
+    @IBOutlet weak var upcomingTableview: UITableView!
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return exampleDays[section]
+        return dates[section][dateIndex][dateIndex]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return dates[section][eventIndex].count             // return how many events for section date
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventsListCell")
-        cell!.textLabel!.text = exampleNames[indexPath.row]
+        cell!.textLabel!.text = dates[indexPath.section][eventIndex][indexPath.row]
         return cell!
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return dates.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -42,26 +47,50 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var ref: DatabaseReference!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         ref = Database.database().reference()
         
         ref.child("events").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get event value
-            self.events = (snapshot.value as? NSDictionary)!
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            
+            // ...
         }) { (error) in
             print(error.localizedDescription)
         }
         
         ref.child("days").observeSingleEvent(of: .value, with: { (snapshot) in
-            // get days value
-            self.days = (snapshot.value as? NSDictionary)!
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            
+            var dates: [[[String]]] = []
+            
+            for day in value! {
+                let dayInfo = day.value as? NSDictionary
+                let dayEvents: [String] = (dayInfo!.value(forKey: "eventIDs") as! NSDictionary).allValues as! [String]
+                
+                let date: [[String]] = [[(dayInfo!.value(forKey: "date") as! String)], dayEvents]
+                dates.append(date)
+                
+                // dates = [[[dateString], [eventsForDate]],
+                //          [[dateString2], [eventsForDate2]]
+                //         ]
+            }
+
+            self.dates = dates
+            
+            self.upcomingTableview.reloadData()
+            
         }) { (error) in
             print(error.localizedDescription)
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
     
 
