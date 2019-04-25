@@ -12,14 +12,11 @@ import FirebaseAuth
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var events: NSDictionary = [:]
-    var days: NSDictionary = [:]
+    var eventDict: NSDictionary = NSDictionary()
     
-    let dateIndex = 0           // date Strings are stored in first column of dates
-    let eventIndex  = 1         // event IDs are stored in second column of dates
-    var dates: [[[String]]] = [
-        [
-            [""], [""]]]            // initialize shape of dates array for table view initialization
+    let dateIndex = 0                           // date Strings are stored in first column of dates
+    var dates: [[[String]]] = []                // initialize array of dates for table view initialization
+    var events: [[String]] = []                 // initialize array of events to be set from database
     
     @IBOutlet weak var upcomingTableview: UITableView!
     
@@ -28,12 +25,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dates[section][eventIndex].count             // return how many events for section date
+        return dates[section][dates[0].count - 1].count             // return how many events for section date
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventsListCell")
-        cell!.textLabel!.text = dates[indexPath.section][eventIndex][indexPath.row]
+        let event = eventDict.value(forKey: dates[indexPath.section][dates[0].count - 1][indexPath.row]) as! NSDictionary
+        cell!.textLabel!.text = (event.value(forKey: "title") as! String)
         return cell!
     }
     
@@ -47,36 +45,40 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var ref: DatabaseReference!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         ref = Database.database().reference()
         
-        ref.child("events").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("info").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
-        ref.child("days").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
+            self.eventDict = value?["events"] as! NSDictionary
+            let dateDict = value?["days"] as! NSDictionary
             
             var dates: [[[String]]] = []
+            var eventTitles: [[String]] = []
             
-            for day in value! {
+            for day in dateDict {
                 let dayInfo = day.value as? NSDictionary
                 let dayEvents: [String] = (dayInfo!.value(forKey: "eventIDs") as! NSDictionary).allValues as! [String]
+                
+                /*for event in dayEvents {
+                    //events.append((eventDict.value(forKey: event) as! NSDictionary).allValues as! [String])
+                    
+                    let title = (eventDict.value(forKey: event) as! NSDictionary).value(forKey: "title")
+                    
+                }*/
+                
+                print(eventTitles)
                 
                 let date: [[String]] = [[(dayInfo!.value(forKey: "date") as! String)], dayEvents]
                 dates.append(date)
                 
+                // shape of dates array:
                 // dates = [[[dateString], [eventsForDate]],
-                //          [[dateString2], [eventsForDate2]]
-                //         ]
+                //          [[dateString2], [eventsForDate2]]]
             }
 
             self.dates = dates
@@ -86,10 +88,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }) { (error) in
             print(error.localizedDescription)
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
     }
     
