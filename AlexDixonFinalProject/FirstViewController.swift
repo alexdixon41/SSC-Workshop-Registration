@@ -33,11 +33,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventsListCell")
-        //let event = eventDict.value(forKey: dates[indexPath.section][dates[0].count - 1][indexPath.row]) as! NSDictionary
-        //cell!.textLabel!.text = (event.value(forKey: "title") as! String)
         cell!.textLabel!.text = events[indexPath.row][0][0]
-        print(indexPath.row)
-        print(events[indexPath.row])
         return cell!
     }
     
@@ -110,7 +106,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         (segue.destination as! EventDetailsViewController).eventInfo = selectedEventInfo
-        print(selectedEventInfo)
     }
 
 }

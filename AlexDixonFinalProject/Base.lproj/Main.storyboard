@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Registered Events-->
         <scene sceneID="sgu-a6-tVC">
             <objects>
                 <viewController id="B5G-ab-qlS" customClass="RegisteredViewController" customModule="AlexDixonFinalProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,15 +23,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="registeredEventCell" textLabel="zqG-8Z-hlq" style="IBUITableViewCellStyleDefault" id="G7s-KE-viP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="registeredEventCell" textLabel="zqG-8Z-hlq" style="IBUITableViewCellStyleDefault" id="G7s-KE-viP">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G7s-KE-viP" id="vBn-tY-fEX">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zqG-8Z-hlq">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.666666666666664"/>
+                                                    <rect key="frame" x="15" y="0.0" width="313" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -57,9 +57,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="MGR-px-y2W"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Nyq-1J-fkG"/>
+                    <tabBarItem key="tabBarItem" title="Registered Events" id="Nyq-1J-fkG"/>
                     <connections>
-                        <segue destination="tzg-iD-kMW" kind="presentation" identifier="registeredToDetails" id="7Vo-2z-ReS"/>
+                        <outlet property="registeredTableView" destination="Mg7-H0-MIM" id="LPG-jD-g07"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GM6-u9-xNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -123,7 +123,7 @@
             </objects>
             <point key="canvasLocation" x="364" y="762"/>
         </scene>
-        <!--Item 1-->
+        <!--Upcoming Events-->
         <scene sceneID="d6Z-At-dLP">
             <objects>
                 <viewController id="eoG-Eg-AbP" customClass="FirstViewController" customModule="AlexDixonFinalProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -170,7 +170,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9xV-ZK-48o"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="UkY-4E-j6q"/>
+                    <tabBarItem key="tabBarItem" title="Upcoming Events" id="UkY-4E-j6q"/>
                     <connections>
                         <outlet property="upcomingTableview" destination="Vt7-GM-gvL" id="bLD-tO-ToH"/>
                         <segue destination="tzg-iD-kMW" kind="presentation" identifier="upcomingToDetails" id="bfQ-JA-u9K"/>
@@ -318,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygM-Qy-pRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2204" y="-454.43349753694582"/>
+            <point key="canvasLocation" x="2198" y="-692"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5j2-kS-nG0">
@@ -371,7 +371,4 @@
     <resources>
         <image name="ic_anonymous.png" width="24" height="24"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="bfQ-JA-u9K"/>
-    </inferredMetricsTieBreakers>
 </document>
