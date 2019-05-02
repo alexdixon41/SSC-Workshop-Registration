@@ -24,7 +24,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == indexPath.row && indexPath.section == 0 {
-            performSegue(withIdentifier: "backToLogin", sender: self)
+            performSegue(withIdentifier: "backToLogin", sender: self)               // return to login screen and log out
             (presentedViewController as! ViewController).logoutAction()
         }
     }

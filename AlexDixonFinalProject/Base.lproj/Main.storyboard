@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Registered Events-->
+        <!--Registered-->
         <scene sceneID="sgu-a6-tVC">
             <objects>
                 <viewController id="B5G-ab-qlS" customClass="RegisteredViewController" customModule="AlexDixonFinalProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,7 +57,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="MGR-px-y2W"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Registered Events" id="Nyq-1J-fkG"/>
+                    <tabBarItem key="tabBarItem" title="Registered" id="Nyq-1J-fkG"/>
                     <connections>
                         <outlet property="registeredTableView" destination="Mg7-H0-MIM" id="LPG-jD-g07"/>
                     </connections>
@@ -113,7 +113,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9eo-2Y-egd"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" image="ic_anonymous.png" id="qgS-Rg-dso"/>
+                    <tabBarItem key="tabBarItem" title="Account" id="qgS-Rg-dso"/>
                     <connections>
                         <outlet property="accountTableView" destination="3eg-a7-1OX" id="DA0-r9-BmQ"/>
                         <segue destination="x6e-Ws-QEg" kind="show" identifier="backToLogin" id="lhJ-b0-Zl4"/>
@@ -123,7 +123,38 @@
             </objects>
             <point key="canvasLocation" x="364" y="762"/>
         </scene>
-        <!--Upcoming Events-->
+        <!--Website-->
+        <scene sceneID="0i2-yO-z1v">
+            <objects>
+                <viewController id="ExR-Bf-zqQ" customClass="WebsiteViewController" customModule="AlexDixonFinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="McB-5q-t6n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IVf-Fs-Bmw">
+                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="T9Y-2F-5or"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Website" id="CeA-2s-ieX"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="websiteView" destination="IVf-Fs-Bmw" id="l4B-Kr-Ti6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e2u-jE-tPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1333.5999999999999" y="761.82266009852219"/>
+        </scene>
+        <!--Upcoming-->
         <scene sceneID="d6Z-At-dLP">
             <objects>
                 <viewController id="eoG-Eg-AbP" customClass="FirstViewController" customModule="AlexDixonFinalProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -170,7 +201,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9xV-ZK-48o"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Upcoming Events" id="UkY-4E-j6q"/>
+                    <tabBarItem key="tabBarItem" title="Upcoming" id="UkY-4E-j6q"/>
                     <connections>
                         <outlet property="upcomingTableview" destination="Vt7-GM-gvL" id="bLD-tO-ToH"/>
                         <segue destination="tzg-iD-kMW" kind="presentation" identifier="upcomingToDetails" id="bfQ-JA-u9K"/>
@@ -328,16 +359,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSS-g8-LbW">
-                                <rect key="frame" x="166" y="391" width="42" height="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EKU Student Success Center" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="930-h9-xR5">
+                                <rect key="frame" x="0.0" y="93" width="375" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log In"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chellgren Success Series" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kKc-mS-Cz0">
+                                <rect key="frame" x="0.0" y="153" width="375" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workshop Registration" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pl2-QF-zNU">
+                                <rect key="frame" x="7" y="375" width="360" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSS-g8-LbW">
+                                <rect key="frame" x="89" y="650" width="197" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="loginAction:" destination="x6e-Ws-QEg" eventType="touchUpInside" id="wDw-gU-uQC"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.29803921568627451" green="0.082352941176470587" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="FSv-Fs-TZJ"/>
                     </view>
                     <connections>
@@ -346,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7c5-3B-9gX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-353" y="13"/>
+            <point key="canvasLocation" x="-354.39999999999998" y="12.561576354679804"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4TS-Nc-r4e">
@@ -360,6 +417,7 @@
                     <connections>
                         <segue destination="eoG-Eg-AbP" kind="relationship" relationship="viewControllers" id="8wa-JZ-FtG"/>
                         <segue destination="B5G-ab-qlS" kind="relationship" relationship="viewControllers" id="2ED-JK-8Bv"/>
+                        <segue destination="ExR-Bf-zqQ" kind="relationship" relationship="viewControllers" id="vyF-sV-Tcx"/>
                         <segue destination="bPA-sJ-8ec" kind="relationship" relationship="viewControllers" id="MJk-zz-iBx"/>
                     </connections>
                 </tabBarController>
@@ -368,7 +426,4 @@
             <point key="canvasLocation" x="364" y="14"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="ic_anonymous.png" width="24" height="24"/>
-    </resources>
 </document>

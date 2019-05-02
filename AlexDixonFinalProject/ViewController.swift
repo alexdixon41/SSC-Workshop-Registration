@@ -12,28 +12,36 @@ import FirebaseUI
 
 class ViewController: UIViewController, FUIAuthDelegate {
 
-    var authUI: FUIAuth?                                //only set internally but get externally
+    var authUI: FUIAuth?                        // default UI flow to sign in to Firebase - only use email address and password
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         let auth: Auth? = Auth.auth()
         authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
         
+        // check if user is signed in
         auth?.addStateDidChangeListener { (auth, user) in
             if user != nil {
-                self.performSegue(withIdentifier: "toMainTabView", sender: self)
+                self.performSegue(withIdentifier: "toMainTabView", sender: self)        // go to tab bar controller if user logged in
             }
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+    // log in the user
     @IBAction func loginAction(_ sender: UIButton) {
         let authViewController = authUI?.authViewController();
         present(authViewController!, animated: true, completion: nil)
     }
     
+    // log out
     func logoutAction() {
         let auth: Auth? = Auth.auth()
         do {
@@ -43,10 +51,10 @@ class ViewController: UIViewController, FUIAuthDelegate {
         }
     }
 
+    // go to main tab bar controller on sign in
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         // handle user and error as necessary
         if user != nil {
-            print("success!")
             performSegue(withIdentifier: "toMainTabView", sender: self)
         }
         else {

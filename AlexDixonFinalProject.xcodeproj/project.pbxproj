@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B60A57FDBD7ECD5F0FFC81FD /* Pods_AlexDixonFinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722DD9A39615A081CB9AC53E /* Pods_AlexDixonFinalProject.framework */; };
+		ED396CAA227B38AF00C05E2B /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED396CA9227B38AF00C05E2B /* WebsiteViewController.swift */; };
 		ED5D8F1C2268D3AC003F7CB8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5D8F1B2268D3AC003F7CB8 /* Launch Screen.storyboard */; };
 		ED7B18D6227883B0006E5D1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED7B18D5227883AB006E5D1C /* GoogleService-Info.plist */; };
 		ED8A53DB226F576800F08AAD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8A53DA226F576800F08AAD /* FirstViewController.swift */; };
@@ -25,6 +26,7 @@
 		6A2821F06EF691AA976BB6BF /* Pods-AlexDixonFinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlexDixonFinalProject.release.xcconfig"; path = "Target Support Files/Pods-AlexDixonFinalProject/Pods-AlexDixonFinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		722DD9A39615A081CB9AC53E /* Pods_AlexDixonFinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlexDixonFinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		775257D431CF67FD7E2E92FF /* Pods-AlexDixonFinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlexDixonFinalProject.debug.xcconfig"; path = "Target Support Files/Pods-AlexDixonFinalProject/Pods-AlexDixonFinalProject.debug.xcconfig"; sourceTree = "<group>"; };
+		ED396CA9227B38AF00C05E2B /* WebsiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
 		ED5D8F1B2268D3AC003F7CB8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		ED7B18D5227883AB006E5D1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED8A53DA226F576800F08AAD /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				EDA60FB5227006CB00F9046F /* RegisteredViewController.swift */,
 				EDA60FB72270084700F9046F /* AlexDixonFinalProject.xcdatamodeld */,
 				EDA60FBA227010A800F9046F /* EventDetailsViewController.swift */,
+				ED396CA9227B38AF00C05E2B /* WebsiteViewController.swift */,
 			);
 			path = AlexDixonFinalProject;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED396CAA227B38AF00C05E2B /* WebsiteViewController.swift in Sources */,
 				EDA60FB6227006CB00F9046F /* RegisteredViewController.swift in Sources */,
 				EDA60FBB227010A800F9046F /* EventDetailsViewController.swift in Sources */,
 				ED8A53DB226F576800F08AAD /* FirstViewController.swift in Sources */,

@@ -16,14 +16,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     let dateIndex = 0                               // date Strings are stored in first column of dates
     
-    //var dates: [[[String]]] = []                  // initialize array of dates with corresponding event titles for table view initialization
-    
     // shape of events: [
     //                      [[eventTitle], [eventDescription], [eventTimes]]
     //                  ]
-    var events: [[[String]]] = []
+    var events: [[[String]]] = []                   // initialize array of events with all information for each event
     
-    var selectedEventInfo: [[String]] = []            // initialize array to store info for the event selected to use in the detail scene
+    var selectedEventInfo: [[String]] = []          // initialize array to store info for the event selected to use in the detail scene
     
     @IBOutlet weak var upcomingTableview: UITableView!
     
@@ -33,14 +31,14 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventsListCell")
-        cell!.textLabel!.text = events[indexPath.row][0][0]
+        cell!.textLabel!.text = events[indexPath.row][0][0]                         // put the event title in the tableview cell
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedEventInfo = events[indexPath.row]
         
-        performSegue(withIdentifier: "upcomingToDetails", sender: self)
+        performSegue(withIdentifier: "upcomingToDetails", sender: self)             // show event details when event selected
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,11 +50,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // get all events from database and save to events array
         ref = Database.database().reference()
         
         ref.child("info").child("events").observeSingleEvent(of: .value, with: { (snapshot) in
             let eventDict = snapshot.value as! NSDictionary
-            self.events.removeAll()
+            self.events.removeAll()                         // clear the events array before reading from db
             
             for event in eventDict {
                 let eventInfo = event.value as! NSDictionary
@@ -70,42 +69,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.upcomingTableview.reloadData()
         })
         
-        /*
-        ref.child("info").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            self.eventDict = value?["events"] as! NSDictionary
-            let dateDict = value?["days"] as! NSDictionary
-            var dates: [[[String]]] = []
-            
-            for day in dateDict {
-                let dayInfo = day.value as? NSDictionary
-                let dayEvents: [String] = (dayInfo!.value(forKey: "eventIDs") as! NSDictionary).allValues as! [String]
-
-                let date: [[String]] = [[(dayInfo!.value(forKey: "date") as! String)], dayEvents]
-                dates.append(date)
-                
-                // shape of dates array:
-                // dates = [[[dateString], [eventsForDate]],
-                //          [[dateString2], [eventsForDate2]]]
-            }
-
-            self.dates = dates
-            self.upcomingTableview.reloadData()
-            
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        */
-        
     }
-    
 
     // Send selected event info to EventDetailsViewController before showing it
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        (segue.destination as! EventDetailsViewController).eventInfo = selectedEventInfo
+        (segue.destination as! EventDetailsViewController).eventInfo = selectedEventInfo                // copy info for the selected event to the event details vc
     }
 
 }
